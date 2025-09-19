@@ -3,5 +3,19 @@
   "queries": [
     "LLM fine-tuning loss",
     "custom transformer loss"
+  ],
+  "research_study_list": [
+    {
+      "title": "When Scaling Meets LLM Finetuning: The Effect of Data, Model and Finetuning Method"
+    },
+    {
+      "title": "Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark"
+    },
+    {
+      "title": "Position Prediction as an Effective Pretraining Strategy"
+    },
+    {
+      "title": "Position Prediction as an Effective Pretraining Strategy"
+    }
   ]
 }
