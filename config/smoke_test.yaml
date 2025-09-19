@@ -1,0 +1,45 @@
+experiment_name: "smoke_test_sst2"
+output_dir: ".research/iteration1/smoke_test"
+model:
+  name: "NousResearch/Llama-2-7b-hf"
+  load_in_8bit: true
+  device_map: "auto"
+lora:
+  r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  target_modules: ["q_proj", "v_proj"]
+task:
+  name: "glue"
+  subset: "sst2"
+  text_column: "sentence"
+  label_column: "label"
+  max_length: 128
+training:
+  seed: 42
+  epochs: 1
+  max_steps: 10
+  learning_rate: 2.0e-4
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  weight_decay: 0.0
+  warmup_ratio: 0.1
+  lr_scheduler_type: "cosine"
+  bf16: true
+proa_jsp:
+  enabled: true
+  lambda: 1.0
+  k_anchor: 64
+  percentile: 90
+evaluation:
+  per_device_eval_batch_size: 4
+  datasets:
+    - name: "wikitext"
+      subset: "wikitext-103-raw-v1"
+      split: "validation"
+      text_column: "text"
+      max_samples: 100
+    - name: "truthful_qa"
+      subset: "multiple_choice"
+      split: "validation"
+      max_samples: 20
