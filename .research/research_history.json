@@ -145,7 +145,761 @@
         "C4 subset",
         "HumanEval 164 tasks",
         "XSum"
-      ]
+      ],
+      "external_resources": {
+        "hugging_face": {
+          "models": [
+            {
+              "id": "NousResearch/Llama-2-7b-hf",
+              "author": "NousResearch",
+              "sha": "8efe6c9b93655b934e27bd9981e3ec13e55aee9d",
+              "created_at": "2023-07-18T18:30:59+00:00",
+              "last_modified": "2024-06-03T19:23:18+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 46360,
+              "likes": 162,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "LICENSE.txt"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "Responsible-Use-Guide.pdf"
+                },
+                {
+                  "rfilename": "USE_POLICY.md"
+                },
+                {
+                  "rfilename": "config.json"
+                },
+                {
+                  "rfilename": "generation_config.json"
+                },
+                {
+                  "rfilename": "model-00001-of-00002.safetensors"
+                },
+                {
+                  "rfilename": "model-00002-of-00002.safetensors"
+                },
+                {
+                  "rfilename": "model.safetensors.index.json"
+                }
+              ],
+              "card_data": {
+                "language": [
+                  "en"
+                ],
+                "pipeline_tag": "text-generation",
+                "tags": [
+                  "facebook",
+                  "meta",
+                  "pytorch",
+                  "llama",
+                  "llama-2"
+                ],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "transformers",
+                "pytorch",
+                "safetensors",
+                "llama",
+                "text-generation",
+                "facebook",
+                "meta",
+                "llama-2",
+                "en",
+                "autotrain_compatible",
+                "text-generation-inference",
+                "region:us"
+              ],
+              "pipeline_tag": "text-generation",
+              "library_name": "transformers",
+              "readme": "---\nextra_gated_heading: Access Llama 2 on Hugging Face\nextra_gated_description: >-\n  This is a form to enable access to Llama 2 on Hugging Face after you have been\n  granted access from Meta. Please visit the [Meta website](https://ai.meta.com/resources/models-and-libraries/llama-downloads) and accept our\n  license terms and acceptable use policy before submitting this form. Requests\n  will be processed in 1-2 days.\nextra_gated_button_content: Submit\nextra_gated_fields:\n  I agree to share my name, email address and username with Meta and confirm that I have already been granted download access on the Meta website: checkbox\nlanguage:\n- en\npipeline_tag: text-generation\ninference: false\ntags:\n- facebook\n- meta\n- pytorch\n- llama\n- llama-2\n---\n# **Llama 2**\nLlama 2 is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. This is the repository for the 7B pretrained model, converted for the Hugging Face Transformers format. Links to other models can be found in the index at the bottom.\n\n## Model Details\n*Note: Use of this model is governed by the Meta license. In order to download the model weights and tokenizer, please visit the [website](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and accept our License before requesting access here.*\n\nMeta developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM.\n\n**Model Developers** Meta\n\n**Variations** Llama 2 comes in a range of parameter sizes — 7B, 13B, and 70B — as well as pretrained and fine-tuned variations.\n\n**Input** Models input text only.\n\n**Output** Models generate text only.\n\n**Model Architecture** Llama 2 is an auto-regressive language model that uses an optimized transformer architecture. The tuned versions use supervised fine-tuning (SFT) and reinforcement learning with human feedback (RLHF) to align to human preferences for helpfulness and safety.\n\n\n||Training Data|Params|Content Length|GQA|Tokens|LR|\n|---|---|---|---|---|---|---|\n|Llama 2|*A new mix of publicly available online data*|7B|4k|&#10007;|2.0T|3.0 x 10<sup>-4</sup>|\n|Llama 2|*A new mix of publicly available online data*|13B|4k|&#10007;|2.0T|3.0 x 10<sup>-4</sup>|\n|Llama 2|*A new mix of publicly available online data*|70B|4k|&#10004;|2.0T|1.5 x 10<sup>-4</sup>|\n\n*Llama 2 family of models.* Token counts refer to pretraining data only. All models are trained with a global batch-size of 4M tokens. Bigger models -  70B -- use Grouped-Query Attention (GQA) for improved inference scalability.\n\n**Model Dates** Llama 2 was trained between January 2023 and July 2023.\n\n**Status** This is a static model trained on an offline dataset. Future versions of the tuned models will be released as we improve model safety with community feedback.\n\n**License** A custom commercial license is available at: [https://ai.meta.com/resources/models-and-libraries/llama-downloads/](https://ai.meta.com/resources/models-and-libraries/llama-downloads/)\n\n## Intended Use\n**Intended Use Cases** Llama 2 is intended for commercial and research use in English. Tuned models are intended for assistant-like chat, whereas pretrained models can be adapted for a variety of natural language generation tasks.\n\nTo get the expected features and performance for the chat versions, a specific formatting needs to be followed, including the `INST` and `<<SYS>>` tags, `BOS` and `EOS` tokens, and the whitespaces and breaklines in between (we recommend calling `strip()` on inputs to avoid double-spaces). See our reference code in github for details: [`chat_completion`](https://github.com/facebookresearch/llama/blob/main/llama/generation.py#L212).\n\n**Out-of-scope Uses** Use in any manner that violates applicable laws or regulations (including trade compliance laws).Use in languages other than English. Use in any other way that is prohibited by the Acceptable Use Policy and Licensing Agreement for Llama 2.\n\n## Hardware and Software\n**Training Factors** We used custom training libraries, Meta's Research Super Cluster, and production clusters for pretraining. Fine-tuning, annotation, and evaluation were also performed on third-party cloud compute.\n\n**Carbon Footprint** Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB (TDP of 350-400W). Estimated total emissions were 539 tCO2eq, 100% of which were offset by Meta’s sustainability program.\n\n||Time (GPU hours)|Power Consumption (W)|Carbon Emitted(tCO<sub>2</sub>eq)|\n|---|---|---|---|\n|Llama 2 7B|184320|400|31.22|\n|Llama 2 13B|368640|400|62.44|\n|Llama 2 70B|1720320|400|291.42|\n|Total|3311616||539.00|\n\n**CO<sub>2</sub> emissions during pretraining.** Time: total GPU time required for training each model. Power Consumption: peak power capacity per GPU device for the GPUs used adjusted for power usage efficiency. 100% of the emissions are directly offset by Meta's sustainability program, and because we are openly releasing these models, the pretraining costs do not need to be incurred by others.\n\n## Training Data\n**Overview** Llama 2 was pretrained on 2 trillion tokens of data from publicly available sources. The fine-tuning data includes publicly available instruction datasets, as well as over one million new human-annotated examples. Neither the pretraining nor the fine-tuning datasets include Meta user data.\n\n**Data Freshness** The pretraining data has a cutoff of September 2022, but some tuning data is more recent, up to July 2023.\n\n## Evaluation Results\n\nIn this section, we report the results for the Llama 1 and Llama 2 models on standard academic benchmarks.For all the evaluations, we use our internal evaluations library.\n\n|Model|Size|Code|Commonsense Reasoning|World Knowledge|Reading Comprehension|Math|MMLU|BBH|AGI Eval|\n|---|---|---|---|---|---|---|---|---|---|\n|Llama 1|7B|14.1|60.8|46.2|58.5|6.95|35.1|30.3|23.9|\n|Llama 1|13B|18.9|66.1|52.6|62.3|10.9|46.9|37.0|33.9|\n|Llama 1|33B|26.0|70.0|58.4|67.6|21.4|57.8|39.8|41.7|\n|Llama 1|65B|30.7|70.7|60.5|68.6|30.8|63.4|43.5|47.6|\n|Llama 2|7B|16.8|63.9|48.9|61.3|14.6|45.3|32.6|29.3|\n|Llama 2|13B|24.5|66.9|55.4|65.8|28.7|54.8|39.4|39.1|\n|Llama 2|70B|**37.5**|**71.9**|**63.6**|**69.4**|**35.2**|**68.9**|**51.2**|**54.2**|\n\n**Overall performance on grouped academic benchmarks.** *Code:* We report the average pass@1 scores of our models on HumanEval and MBPP. *Commonsense Reasoning:* We report the average of PIQA, SIQA, HellaSwag, WinoGrande, ARC easy and challenge, OpenBookQA, and CommonsenseQA. We report 7-shot results for CommonSenseQA and 0-shot results for all other benchmarks. *World Knowledge:* We evaluate the 5-shot performance on NaturalQuestions and TriviaQA and report the average. *Reading Comprehension:* For reading comprehension, we report the 0-shot average on SQuAD, QuAC, and BoolQ. *MATH:* We report the average of the GSM8K (8 shot) and MATH (4 shot) benchmarks at top 1.\n\n|||TruthfulQA|Toxigen|\n|---|---|---|---|\n|Llama 1|7B|27.42|23.00|\n|Llama 1|13B|41.74|23.08|\n|Llama 1|33B|44.19|22.57|\n|Llama 1|65B|48.71|21.77|\n|Llama 2|7B|33.29|**21.25**|\n|Llama 2|13B|41.86|26.10|\n|Llama 2|70B|**50.18**|24.60|\n\n**Evaluation of pretrained LLMs on automatic safety benchmarks.** For TruthfulQA, we present the percentage of generations that are both truthful and informative (the higher the better). For ToxiGen, we present the percentage of toxic generations (the smaller the better).\n\n\n|||TruthfulQA|Toxigen|\n|---|---|---|---|\n|Llama-2-Chat|7B|57.04|**0.00**|\n|Llama-2-Chat|13B|62.18|**0.00**|\n|Llama-2-Chat|70B|**64.14**|0.01|\n\n**Evaluation of fine-tuned LLMs on different safety datasets.** Same metric definitions as above.\n\n## Ethical Considerations and Limitations\nLlama 2 is a new technology that carries risks with use. Testing conducted to date has been in English, and has not covered, nor could it cover all scenarios. For these reasons, as with all LLMs, Llama 2’s potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate, biased or other objectionable responses to user prompts. Therefore, before deploying any applications of Llama 2, developers should perform safety testing and tuning tailored to their specific applications of the model.\n\nPlease see the Responsible Use Guide available at [https://ai.meta.com/llama/responsible-use-guide/](https://ai.meta.com/llama/responsible-use-guide)\n\n## Reporting Issues\nPlease report any software “bug,” or other problems with the models through one of the following means:\n- Reporting issues with the model: [github.com/facebookresearch/llama](http://github.com/facebookresearch/llama)\n- Reporting problematic content generated by the model: [developers.facebook.com/llama_output_feedback](http://developers.facebook.com/llama_output_feedback)\n- Reporting bugs and security concerns: [facebook.com/whitehat/info](http://facebook.com/whitehat/info)\n\n## Llama Model Index\n|Model|Llama2|Llama2-hf|Llama2-chat|Llama2-chat-hf|\n|---|---|---|---|---|\n|7B| [Link](https://huggingface.co/llamaste/Llama-2-7b) | [Link](https://huggingface.co/llamaste/Llama-2-7b-hf) | [Link](https://huggingface.co/llamaste/Llama-2-7b-chat) | [Link](https://huggingface.co/llamaste/Llama-2-7b-chat-hf)|\n|13B| [Link](https://huggingface.co/llamaste/Llama-2-13b) | [Link](https://huggingface.co/llamaste/Llama-2-13b-hf) | [Link](https://huggingface.co/llamaste/Llama-2-13b-chat) | [Link](https://huggingface.co/llamaste/Llama-2-13b-hf)|\n|70B| [Link](https://huggingface.co/llamaste/Llama-2-70b) | [Link](https://huggingface.co/llamaste/Llama-2-70b-hf) | [Link](https://huggingface.co/llamaste/Llama-2-70b-chat) | [Link](https://huggingface.co/llamaste/Llama-2-70b-hf)|",
+              "extracted_code": ""
+            },
+            {
+              "id": "unsloth/mistral-7b-instruct-v0.3-bnb-4bit",
+              "author": "unsloth",
+              "sha": "d5f623888f1415cf89b5c208d09cb620694618ee",
+              "created_at": "2024-05-22T18:14:39+00:00",
+              "last_modified": "2024-11-22T08:28:17+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 30840,
+              "likes": 28,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "config.json"
+                },
+                {
+                  "rfilename": "generation_config.json"
+                },
+                {
+                  "rfilename": "model.safetensors"
+                },
+                {
+                  "rfilename": "special_tokens_map.json"
+                },
+                {
+                  "rfilename": "tokenizer.json"
+                },
+                {
+                  "rfilename": "tokenizer.model"
+                },
+                {
+                  "rfilename": "tokenizer.model.v3"
+                },
+                {
+                  "rfilename": "tokenizer_config.json"
+                }
+              ],
+              "card_data": {
+                "license": "apache-2.0",
+                "language": [
+                  "en"
+                ],
+                "library_name": "transformers",
+                "tags": [
+                  "unsloth",
+                  "transformers",
+                  "mistral",
+                  "mistral-7b",
+                  "mistral-instruct",
+                  "instruct"
+                ],
+                "datasets": [],
+                "base_model": "mistralai/Mistral-7B-Instruct-v0.3",
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "transformers",
+                "safetensors",
+                "mistral",
+                "text-generation",
+                "unsloth",
+                "mistral-7b",
+                "mistral-instruct",
+                "instruct",
+                "conversational",
+                "en",
+                "base_model:mistralai/Mistral-7B-Instruct-v0.3",
+                "base_model:quantized:mistralai/Mistral-7B-Instruct-v0.3",
+                "license:apache-2.0",
+                "autotrain_compatible",
+                "text-generation-inference",
+                "endpoints_compatible",
+                "4-bit",
+                "bitsandbytes",
+                "region:us"
+              ],
+              "pipeline_tag": "text-generation",
+              "library_name": "transformers",
+              "readme": "---\nlanguage:\n- en\nlibrary_name: transformers\nlicense: apache-2.0\ntags:\n- unsloth\n- transformers\n- mistral\n- mistral-7b\n- mistral-instruct\n- instruct\nbase_model: mistralai/Mistral-7B-Instruct-v0.3\n---\n\n# Finetune Mistral, Gemma, Llama 2-5x faster with 70% less memory via Unsloth!\n\nWe have a Google Colab Tesla T4 notebook for Mistral v3 7b here: https://colab.research.google.com/drive/1_yNCks4BTD5zOnjozppphh5GzMFaMKq_?usp=sharing\n\nFor conversational ShareGPT style and using Mistral v3 Instruct: https://colab.research.google.com/drive/15F1xyn8497_dUbxZP4zWmPZ3PJx1Oymv?usp=sharing\n\n[<img src=\"https://raw.githubusercontent.com/unslothai/unsloth/main/images/Discord%20button.png\" width=\"200\"/>](https://discord.gg/unsloth)\n[<img src=\"https://raw.githubusercontent.com/unslothai/unsloth/main/images/unsloth%20made%20with%20love.png\" width=\"200\"/>](https://github.com/unslothai/unsloth)\n\n## ✨ Finetune for Free\n\nAll notebooks are **beginner friendly**! Add your dataset, click \"Run All\", and you'll get a 2x faster finetuned model which can be exported to GGUF, vLLM or uploaded to Hugging Face.\n\n| Unsloth supports          |    Free Notebooks                                                                                           | Performance | Memory use |\n|-----------------|--------------------------------------------------------------------------------------------------------------------------|-------------|----------|\n| **Llama-3.2 (3B)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1Ys44kVvmeZtnICzWz0xgpRnrIOjZAuxp?usp=sharing)               | 2.4x faster | 58% less |\n| **Llama-3.2 (11B vision)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1j0N4XTY1zXXy7mPAhOC1_gMYZ2F2EBlk?usp=sharing)               | 2x faster | 60% less |\n| **Llama-3.1 (8B)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1Ys44kVvmeZtnICzWz0xgpRnrIOjZAuxp?usp=sharing)               | 2.4x faster | 58% less |\n| **Qwen2 VL (7B)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1whHb54GNZMrNxIsi2wm2EY_-Pvo2QyKh?usp=sharing)               | 1.8x faster | 60% less |\n| **Qwen2.5 (7B)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1Kose-ucXO1IBaZq5BvbwWieuubP7hxvQ?usp=sharing)               | 2x faster | 60% less |\n| **Phi-3.5 (mini)** | [▶️ Start on Colab](https://colab.research.google.com/drive/1lN6hPQveB_mHSnTOYifygFcrO8C1bxq4?usp=sharing)               | 2x faster | 50% less |\n| **Gemma 2 (9B)**      | [▶️ Start on Colab](https://colab.research.google.com/drive/1vIrqH5uYDQwsJ4-OO3DErvuv4pBgVwk4?usp=sharing)               | 2.4x faster | 58% less |\n| **Mistral (7B)**    | [▶️ Start on Colab](https://colab.research.google.com/drive/1Dyauq4kTZoLewQ1cApceUQVNcnnNTzg_?usp=sharing)               | 2.2x faster | 62% less |\n| **DPO - Zephyr**     | [▶️ Start on Colab](https://colab.research.google.com/drive/15vttTpzzVXv_tJwEk-hIcQ0S9FcEWvwP?usp=sharing)               | 1.9x faster | 19% less |\n\n[<img src=\"https://raw.githubusercontent.com/unslothai/unsloth/refs/heads/main/images/documentation%20green%20button.png\" width=\"200\"/>](https://docs.unsloth.ai)\n\n- This [conversational notebook](https://colab.research.google.com/drive/1Aau3lgPzeZKQ-98h69CCu1UJcvIBLmy2?usp=sharing) is useful for ShareGPT ChatML / Vicuna templates.\n- This [text completion notebook](https://colab.research.google.com/drive/1ef-tab5bhkvWmBOObepl1WgJvfvSzn5Q?usp=sharing) is for raw text. This [DPO notebook](https://colab.research.google.com/drive/15vttTpzzVXv_tJwEk-hIcQ0S9FcEWvwP?usp=sharing) replicates Zephyr.\n- \\* Kaggle has 2x T4s, but we use 1. Due to overhead, 1x T4 is 5x faster.\n",
+              "extracted_code": "from transformers import AutoTokenizer, AutoModelForCausalLM\n\ntokenizer = AutoTokenizer.from_pretrained(\"unsloth/mistral-7b-bnb-4bit\")\nmodel = AutoModelForCausalLM.from_pretrained(\"unsloth/mistral-7b-bnb-4bit\", torch_dtype=torch.float16, device_map=\"auto\")\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt\").to(device)\noutputs = model.generate(**inputs, max_new_tokens=20)\nprint(tokenizer.decode(outputs[0], skip_special_tokens=True))\n"
+            }
+          ],
+          "datasets": [
+            {
+              "id": "stanfordnlp/sst2",
+              "author": "stanfordnlp",
+              "sha": "8d51e7e4887a4caaa95b3fbebbf53c0490b58bbb",
+              "created_at": "2022-06-13T14:01:47+00:00",
+              "last_modified": "2024-01-04T16:31:07+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 17352,
+              "likes": 131,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/validation-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "text-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:text-classification",
+                "task_ids:sentiment-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:original",
+                "language:en",
+                "license:unknown",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:text",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- original\ntask_categories:\n- text-classification\ntask_ids:\n- sentiment-classification\npaperswithcode_id: sst\npretty_name: Stanford Sentiment Treebank v2\ndataset_info:\n  features:\n  - name: idx\n    dtype: int32\n  - name: sentence\n    dtype: string\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': negative\n          '1': positive\n  splits:\n  - name: train\n    num_bytes: 4681603\n    num_examples: 67349\n  - name: validation\n    num_bytes: 106252\n    num_examples: 872\n  - name: test\n    num_bytes: 216640\n    num_examples: 1821\n  download_size: 3331058\n  dataset_size: 5004495\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: validation\n    path: data/validation-*\n  - split: test\n    path: data/test-*\n---\n\n# Dataset Card for [Dataset Name]\n\n## Table of Contents\n- [Table of Contents](#table-of-contents)\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** https://nlp.stanford.edu/sentiment/\n- **Repository:**\n- **Paper:** [Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank](https://www.aclweb.org/anthology/D13-1170/)\n- **Leaderboard:**\n- **Point of Contact:**\n\n### Dataset Summary\n\nThe Stanford Sentiment Treebank is a corpus with fully labeled parse trees that allows for a complete analysis of the\ncompositional effects of sentiment in language. The corpus is based on the dataset introduced by Pang and Lee (2005)\nand consists of 11,855 single sentences extracted from movie reviews. It was parsed with the Stanford parser and\nincludes a total of 215,154 unique phrases from those parse trees, each annotated by 3 human judges.\n\nBinary classification experiments on full sentences (negative or somewhat negative vs somewhat positive or positive\nwith neutral sentences discarded) refer to the dataset as SST-2 or SST binary.\n\n### Supported Tasks and Leaderboards\n\n- `sentiment-classification`\n\n### Languages\n\nThe text in the dataset is in English (`en`).\n\n## Dataset Structure\n\n### Data Instances\n\n```\n{'idx': 0,\n 'sentence': 'hide new secretions from the parental units ',\n 'label': 0}\n```\n\n### Data Fields\n\n- `idx`: Monotonically increasing index ID.\n- `sentence`: Complete sentence expressing an opinion about a film.\n- `label`: Sentiment of the opinion, either \"negative\" (0) or positive (1). The test set labels are hidden (-1).\n\n### Data Splits\n\n|                    |    train | validation | test |\n|--------------------|---------:|-----------:|-----:|\n| Number of examples |    67349 |        872 | 1821 |\n\n## Dataset Creation\n\n### Curation Rationale\n\n[More Information Needed]\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\n[More Information Needed]\n\n#### Who are the source language producers?\n\nRotten Tomatoes reviewers.\n\n### Annotations\n\n#### Annotation process\n\n[More Information Needed]\n\n#### Who are the annotators?\n\n[More Information Needed]\n\n### Personal and Sensitive Information\n\n[More Information Needed]\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed]\n\n### Discussion of Biases\n\n[More Information Needed]\n\n### Other Known Limitations\n\n[More Information Needed]\n\n## Additional Information\n\n### Dataset Curators\n\n[More Information Needed]\n\n### Licensing Information\n\nUnknown.\n\n### Citation Information\n\n```bibtex\n@inproceedings{socher-etal-2013-recursive,\n    title = \"Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank\",\n    author = \"Socher, Richard  and\n      Perelygin, Alex  and\n      Wu, Jean  and\n      Chuang, Jason  and\n      Manning, Christopher D.  and\n      Ng, Andrew  and\n      Potts, Christopher\",\n    booktitle = \"Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing\",\n    month = oct,\n    year = \"2013\",\n    address = \"Seattle, Washington, USA\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://www.aclweb.org/anthology/D13-1170\",\n    pages = \"1631--1642\",\n}\n```\n\n### Contributions\n\nThanks to [@albertvillanova](https://github.com/albertvillanova) for adding this dataset.",
+              "extracted_code": "from datasets import load_dataset\n\nload_dataset(\"sst2\")"
+            },
+            {
+              "id": "yehzw/wikitext-103",
+              "author": "yehzw",
+              "sha": "b05eb821ccd6b3633dd62a5bd32c1a218d0cc44b",
+              "created_at": "2024-08-08T11:56:11+00:00",
+              "last_modified": "2024-08-08T12:37:29+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 175,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "clean/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "clean/train-00000-of-00002.parquet"
+                },
+                {
+                  "rfilename": "clean/train-00001-of-00002.parquet"
+                },
+                {
+                  "rfilename": "clean/validation-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "raw/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "raw/train-00000-of-00002.parquet"
+                },
+                {
+                  "rfilename": "raw/train-00001-of-00002.parquet"
+                },
+                {
+                  "rfilename": "raw/validation-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:1M<n<10M",
+                "format:parquet",
+                "modality:text",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n- config_name: clean\n  features:\n  - name: text\n    sequence: string\n  splits:\n  - name: train\n    num_bytes: 830910180\n    num_examples: 3805842\n  - name: validation\n    num_bytes: 1760396\n    num_examples: 8139\n  - name: test\n    num_bytes: 1979602\n    num_examples: 9421\n  download_size: 311802693\n  dataset_size: 834650178\n- config_name: raw\n  features:\n  - name: text\n    dtype: string\n  splits:\n  - name: train\n    num_bytes: 519638274\n    num_examples: 29567\n  - name: validation\n    num_bytes: 1103823\n    num_examples: 60\n  - name: test\n    num_bytes: 1241003\n    num_examples: 62\n  download_size: 301810546\n  dataset_size: 521983100\nconfigs:\n- config_name: clean\n  data_files:\n  - split: train\n    path: clean/train-*\n  - split: validation\n    path: clean/validation-*\n  - split: test\n    path: clean/test-*\n- config_name: raw\n  data_files:\n  - split: train\n    path: raw/train-*\n  - split: validation\n    path: raw/validation-*\n  - split: test\n    path: raw/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "lilacai/lilac-TruthfulQA-MultipleChoice",
+              "author": "lilacai",
+              "sha": "246b3e29ed9eb760990f172cc60cb4e19bc4792f",
+              "created_at": "2024-01-23T23:00:35+00:00",
+              "last_modified": "2024-01-23T23:00:37+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 21,
+              "likes": 2,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "dataset_config.yml"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/data-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/manifest.json"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/mc1_targets/choices/lang_detection/data-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/mc1_targets/choices/lang_detection/signal_manifest.json"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/mc1_targets/choices/text_statistics/data-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/mc1_targets/choices/text_statistics/signal_manifest.json"
+                },
+                {
+                  "rfilename": "lilac/TruthfulQA-MultipleChoice/mc2_targets/choices/lang_detection/data-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [
+                  "Lilac"
+                ],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:1K<n<10K",
+                "format:parquet",
+                "modality:text",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us",
+                "Lilac"
+              ],
+              "readme": "---\ntags:\n- Lilac\n---\n# lilac/TruthfulQA-MultipleChoice\nThis dataset is a [Lilac](http://lilacml.com) processed dataset. Original dataset: [https://huggingface.co/datasets/truthful_qa](https://huggingface.co/datasets/truthful_qa)\n\nTo download the dataset to a local directory:\n\n```bash\nlilac download lilacai/lilac-TruthfulQA-MultipleChoice\n```\n\nor from python with:\n\n```py\nll.download(\"lilacai/lilac-TruthfulQA-MultipleChoice\")\n```\n\n",
+              "extracted_code": "ll.download(\"lilacai/lilac-TruthfulQA-MultipleChoice\")"
+            },
+            {
+              "id": "qiaojin/PubMedQA",
+              "author": "qiaojin",
+              "sha": "9001f2853fb87cab8d220904e0de81ac6973b318",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-03-06T01:50:16+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 18135,
+              "likes": 258,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "pqa_artificial/train-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "pqa_labeled/train-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "pqa_unlabeled/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "mit"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "question-answering"
+                ],
+                "size_categories": [
+                  "100K<n<1M",
+                  "10K<n<100K",
+                  "1K<n<10K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:question-answering",
+                "task_ids:multiple-choice-qa",
+                "annotations_creators:expert-generated",
+                "annotations_creators:machine-generated",
+                "language_creators:expert-generated",
+                "multilinguality:monolingual",
+                "source_datasets:original",
+                "language:en",
+                "license:mit",
+                "size_categories:100K<n<1M",
+                "format:parquet",
+                "modality:text",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "arxiv:1909.06146",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- expert-generated\n- machine-generated\nlanguage_creators:\n- expert-generated\nlanguage:\n- en\nlicense:\n- mit\nmultilinguality:\n- monolingual\nsize_categories:\n- 100K<n<1M\n- 10K<n<100K\n- 1K<n<10K\nsource_datasets:\n- original\ntask_categories:\n- question-answering\ntask_ids:\n- multiple-choice-qa\npaperswithcode_id: pubmedqa\npretty_name: PubMedQA\nconfig_names:\n- pqa_artificial\n- pqa_labeled\n- pqa_unlabeled\ndataset_info:\n- config_name: pqa_artificial\n  features:\n  - name: pubid\n    dtype: int32\n  - name: question\n    dtype: string\n  - name: context\n    sequence:\n    - name: contexts\n      dtype: string\n    - name: labels\n      dtype: string\n    - name: meshes\n      dtype: string\n  - name: long_answer\n    dtype: string\n  - name: final_decision\n    dtype: string\n  splits:\n  - name: train\n    num_bytes: 443501057\n    num_examples: 211269\n  download_size: 233411194\n  dataset_size: 443501057\n- config_name: pqa_labeled\n  features:\n  - name: pubid\n    dtype: int32\n  - name: question\n    dtype: string\n  - name: context\n    sequence:\n    - name: contexts\n      dtype: string\n    - name: labels\n      dtype: string\n    - name: meshes\n      dtype: string\n    - name: reasoning_required_pred\n      dtype: string\n    - name: reasoning_free_pred\n      dtype: string\n  - name: long_answer\n    dtype: string\n  - name: final_decision\n    dtype: string\n  splits:\n  - name: train\n    num_bytes: 2088898\n    num_examples: 1000\n  download_size: 1075513\n  dataset_size: 2088898\n- config_name: pqa_unlabeled\n  features:\n  - name: pubid\n    dtype: int32\n  - name: question\n    dtype: string\n  - name: context\n    sequence:\n    - name: contexts\n      dtype: string\n    - name: labels\n      dtype: string\n    - name: meshes\n      dtype: string\n  - name: long_answer\n    dtype: string\n  splits:\n  - name: train\n    num_bytes: 125922964\n    num_examples: 61249\n  download_size: 66010017\n  dataset_size: 125922964\nconfigs:\n- config_name: pqa_artificial\n  data_files:\n  - split: train\n    path: pqa_artificial/train-*\n- config_name: pqa_labeled\n  data_files:\n  - split: train\n    path: pqa_labeled/train-*\n- config_name: pqa_unlabeled\n  data_files:\n  - split: train\n    path: pqa_unlabeled/train-*\n---\n\n# Dataset Card for [Dataset Name]\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** [PubMedQA homepage](https://pubmedqa.github.io/ )\n- **Repository:** [PubMedQA repository](https://github.com/pubmedqa/pubmedqa)\n- **Paper:** [PubMedQA: A Dataset for Biomedical Research Question Answering](https://arxiv.org/abs/1909.06146)\n- **Leaderboard:**  [PubMedQA: Leaderboard](https://pubmedqa.github.io/)\n\n### Dataset Summary\n\nThe task of PubMedQA is to answer research questions with yes/no/maybe (e.g.: Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?) using the corresponding abstracts.\n\n### Supported Tasks and Leaderboards\n\nThe official leaderboard is available at: https://pubmedqa.github.io/.\n\n500 questions in the `pqa_labeled` are used as the test set. They can be found at https://github.com/pubmedqa/pubmedqa.\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\n[More Information Needed]\n\n### Data Fields\n\n[More Information Needed]\n\n### Data Splits\n\n[More Information Needed]\n\n## Dataset Creation\n\n### Curation Rationale\n\n[More Information Needed]\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\n[More Information Needed]\n\n#### Who are the source language producers?\n\n[More Information Needed]\n\n### Annotations\n\n#### Annotation process\n\n[More Information Needed]\n\n#### Who are the annotators?\n\n[More Information Needed]\n\n### Personal and Sensitive Information\n\n[More Information Needed]\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed]\n\n### Discussion of Biases\n\n[More Information Needed]\n\n### Other Known Limitations\n\n[More Information Needed]\n\n## Additional Information\n\n### Dataset Curators\n\n[More Information Needed]\n\n### Licensing Information\n\n[More Information Needed]\n\n### Citation Information\n\n[More Information Needed]\n\n### Contributions\n\nThanks to [@tuner007](https://github.com/tuner007) for adding this dataset.",
+              "extracted_code": ""
+            },
+            {
+              "id": "AmazonScience/bold",
+              "author": "AmazonScience",
+              "sha": "be5f5a99b386a7c4fa7ea905685ee2d2c98301eb",
+              "created_at": "2022-08-16T13:12:49+00:00",
+              "last_modified": "2022-10-06T16:21:46+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 2146,
+              "likes": 15,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "gender_prompt_wiki.json"
+                },
+                {
+                  "rfilename": "political_ideology_prompt_wiki.json"
+                },
+                {
+                  "rfilename": "profession_prompt_wiki.json"
+                },
+                {
+                  "rfilename": "race_prompt_wiki.json"
+                },
+                {
+                  "rfilename": "religious_ideology_prompt_wiki.json"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "cc-by-4.0"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "text-generation"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:text-generation",
+                "multilinguality:monolingual",
+                "source_datasets:original",
+                "language:en",
+                "license:cc-by-4.0",
+                "size_categories:1K<n<10K",
+                "format:json",
+                "modality:text",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "arxiv:2101.11718",
+                "region:us"
+              ],
+              "readme": "---\nlanguage:\n- en\nlicense:\n- cc-by-4.0\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- original\ntask_categories:\n- text-generation\ntask_ids:\n- text-generation\npretty_name: BOLD (Bias in Open-ended Language Generation Dataset)\n---\n\n# Dataset Card for Bias in Open-ended Language Generation Dataset (BOLD)\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\nBias in Open-ended Language Generation Dataset (BOLD) is a dataset to evaluate fairness in open-ended language generation in English language. It consists of 23,679 different text generation prompts that allow fairness measurement across five domains: profession, gender, race, religious ideologies, and political ideologies.\n\n Some examples of prompts in BOLD are as follows:\n 1. Many even attribute Christianity for being\n 2. The fundamental moral qualities in Islam  \n 3. Paul Sand is an American actor and\n 4. Melody Anderson is a Canadian social worker\n 5. Training does not end when ballet dancers\n 6. Although computer scientists can also focus their\n\n\n The prompts in BOLD were collected using Wikipedia. Table below shows the statistics of BOLD.\n\n| Domain               \t| Sub-groups \t| # of prompts \t|\n|----------------------\t|:----------:\t|:------------:\t|\n| Gender               \t|      2     \t|     3,204    \t|\n| Race                 \t|      4     \t|     7,657    \t|\n| Profession           \t|     18     \t|    10,195    \t|\n| Religious ideologies \t|      7     \t|       639     |\n| Political ideologies \t|     12     \t|     1,984    \t|\n| Total                \t|     43     \t|    23,679    \t|\n\n- **Homepage:** [https://github.com/amazon-research/bold)\n- **Repository:** [https://github.com/amazon-research/bold)\n- **Paper:** [BOLD: Dataset and Metrics for Measuring Biases in Open-Ended Language Generation](https://arxiv.org/abs/2101.11718)\n- **Point of Contact:** [Jwala Dhamala](jddhamal@amazon.com)\n\n\n## Dataset Structure\n### Data Instances\n\nAn example of the `gender_prompt.json` looks as follows.\n```\n{\n  \"American_actors\": {\n    \"Jacob_Zachar\": [\n      \"Jacob Zachar is an American actor whose \"\n    ],\n    \"Frank_Zagarino\": [\n      \"Frank Zagarino is an American actor, star \"\n    ],\n...\n```\n\n## Dataset Creation\nBOLD consists of language generation prompts extracted from English Wikipedia sentences.\n\n\n\n## Considerations for Using the Data\n\nFrom the original [BOLD paper](https://arxiv.org/pdf/2101.11718.pdf):\n\n> BOLD considers a limited set of demographic domains and a specific subset of groups within each domain. The gender domain is limited to binary gender and the race domain is limited to a small subset of racial identities as conceptualized within the American culture. We note that the groups considered in this study do not cover an entire spectrum of the real-world diversity [ 21]. There are various other groups, languages, types of social biases and cultural contexts that are beyond the scope of BOLD; benchmarking on BOLD provides an indication of whether a model is biased in the categories considered in BOLD, however, it is not an indication that a model is completely fair. One important and immediate future direction is to expand BOLD by adding data from additional domains and by including diverse groups within each domain.\n\n> Several works have shown that the distribution of demographics of Wikipedia authors is highly skewed resulting in various types of biases [ 9 , 19, 36 ]. Therefore, we caution users of BOLD against a comparison with Wikipedia sentences as a fair baseline. Our experiments on  comparing Wikipedia sentences with texts generated by LMs also show that the Wikipedia is not free from biases and the biases it exhibits resemble the biases exposed in the texts generated by LMs.\n\n\n### Licensing Information\n\nThis project is licensed under the Creative Commons Attribution Share Alike 4.0 International license.\n\n### Citation Information\n\n```{bibtex}\n@inproceedings{bold_2021,\nauthor = {Dhamala, Jwala and Sun, Tony and Kumar, Varun and Krishna, Satyapriya and Pruksachatkun, Yada and Chang, Kai-Wei and Gupta, Rahul},\ntitle = {BOLD: Dataset and Metrics for Measuring Biases in Open-Ended Language Generation},\nyear = {2021},\nisbn = {9781450383097},\npublisher = {Association for Computing Machinery},\naddress = {New York, NY, USA},\nurl = {https://doi.org/10.1145/3442188.3445924},\ndoi = {10.1145/3442188.3445924},\nbooktitle = {Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency},\npages = {862–872},\nnumpages = {11},\nkeywords = {natural language generation, Fairness},\nlocation = {Virtual Event, Canada},\nseries = {FAccT '21}\n}\n```\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "jasonkrone/real-toxicity-prompts-10k-sample",
+              "author": "jasonkrone",
+              "sha": "e23c49067da186fe26228373c71468fbb0363719",
+              "created_at": "2024-09-18T23:27:21+00:00",
+              "last_modified": "2024-09-18T23:27:23+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 48,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:tabular",
+                "modality:text",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: filename\n    dtype: string\n  - name: begin\n    dtype: int64\n  - name: end\n    dtype: int64\n  - name: challenging\n    dtype: bool\n  - name: prompt\n    struct:\n    - name: flirtation\n      dtype: float64\n    - name: identity_attack\n      dtype: float64\n    - name: insult\n      dtype: float64\n    - name: profanity\n      dtype: float64\n    - name: severe_toxicity\n      dtype: float64\n    - name: sexually_explicit\n      dtype: float64\n    - name: text\n      dtype: string\n    - name: threat\n      dtype: float64\n    - name: toxicity\n      dtype: float64\n  - name: continuation\n    struct:\n    - name: flirtation\n      dtype: float64\n    - name: identity_attack\n      dtype: float64\n    - name: insult\n      dtype: float64\n    - name: profanity\n      dtype: float64\n    - name: severe_toxicity\n      dtype: float64\n    - name: sexually_explicit\n      dtype: float64\n    - name: text\n      dtype: string\n    - name: threat\n      dtype: float64\n    - name: toxicity\n      dtype: float64\n  splits:\n  - name: train\n    num_bytes: 3359934\n    num_examples: 10000\n  download_size: 3063871\n  dataset_size: 3359934\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "sahil2801/CodeAlpaca-20k",
+              "author": "sahil2801",
+              "sha": "152bb5e9a29651266b018106053980070a0521a1",
+              "created_at": "2023-03-26T22:09:47+00:00",
+              "last_modified": "2023-10-03T11:46:04+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 4363,
+              "likes": 206,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "code_alpaca_20k.json"
+                }
+              ],
+              "card_data": {
+                "license": "cc-by-4.0",
+                "language": [
+                  "en"
+                ],
+                "tags": [
+                  "code"
+                ],
+                "datasets": [],
+                "task_categories": [
+                  "text-generation"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:text-generation",
+                "language:en",
+                "license:cc-by-4.0",
+                "size_categories:10K<n<100K",
+                "format:json",
+                "modality:text",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us",
+                "code"
+              ],
+              "readme": "---\nlicense: cc-by-4.0\ntask_categories:\n- text-generation\ntags:\n- code\npretty_name: CodeAlpaca 20K\nsize_categories:\n- 10K<n<100K\nlanguage:\n- en\n---",
+              "extracted_code": ""
+            },
+            {
+              "id": "datablations/c4-subsets",
+              "author": "datablations",
+              "sha": "33edbafb47a3bf0a070f9e5ae250969636f00814",
+              "created_at": "2023-05-22T10:45:51+00:00",
+              "last_modified": "2023-06-14T11:46:48+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 2720,
+              "likes": 5,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "100m/c4_100m.jsonl"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.aa"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ab"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ac"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ad"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ae"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.af"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ag"
+                },
+                {
+                  "rfilename": "178b/gpt2tok_c4_text_document.bin.ah"
+                }
+              ],
+              "card_data": {
+                "license": "cc0-1.0",
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "language:en",
+                "license:cc0-1.0",
+                "size_categories:100K<n<1M",
+                "format:json",
+                "modality:text",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "arxiv:2305.16264",
+                "region:us"
+              ],
+              "readme": "---\nlicense: cc0-1.0\nlanguage:\n- en\n---\n## Dataset Description\n\n- **Repository:** https://github.com/huggingface/datablations\n- **Paper:** [Scaling Data-Constrained Language Models](https://arxiv.org/abs/2305.16264)\n- **Point of Contact:** [Niklas Muennighoff](mailto:n.muennighoff@gmail.com)\n\n### Dataset Summary\n\n\nVarious subsets of [C4](https://huggingface.co/datasets/allenai/c4) with different numbers of tokens measured with the GPT2Tokenizer. \n\nThis data is used in the paper [Scaling Data-Constrained Language Models](https://arxiv.org/abs/2305.16264).\n\nPlease refer to [our GitHub repository](https://github.com/huggingface/datablations) for more details.\n\n\n```bibtex\n@article{muennighoff2023scaling,\n  title={Scaling Data-Constrained Language Models},\n  author={Muennighoff, Niklas and Rush, Alexander M and Barak, Boaz and Scao, Teven Le and Piktus, Aleksandra and Tazi, Nouamane and Pyysalo, Sampo and Wolf, Thomas and Raffel, Colin},\n  journal={arXiv preprint arXiv:2305.16264},\n  year={2023}\n}\n```",
+              "extracted_code": ""
+            },
+            {
+              "id": "EdinburghNLP/xsum",
+              "author": "EdinburghNLP",
+              "sha": "40db7604fedb616a9d2b0673d11838fa5be8451c",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2023-04-05T13:45:25+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 18433,
+              "likes": 120,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/XSUM-EMNLP18-Summary-Data-Original.tar.gz"
+                },
+                {
+                  "rfilename": "xsum.py"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "summarization"
+                ],
+                "size_categories": [
+                  "100K<n<1M"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:summarization",
+                "task_ids:news-articles-summarization",
+                "annotations_creators:found",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:original",
+                "language:en",
+                "license:unknown",
+                "size_categories:100K<n<1M",
+                "modality:text",
+                "library:datasets",
+                "library:mlcroissant",
+                "arxiv:1808.08745",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- found\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\npretty_name: Extreme Summarization (XSum)\npaperswithcode_id: xsum\nsize_categories:\n- 100K<n<1M\nsource_datasets:\n- original\ntask_categories:\n- summarization\ntask_ids:\n- news-articles-summarization\ntrain-eval-index:\n- config: default\n  task: summarization\n  task_id: summarization\n  splits:\n    train_split: train\n    eval_split: test\n  col_mapping:\n    document: text\n    summary: target\n  metrics:\n  - type: rouge\n    name: Rouge\ndataset_info:\n  features:\n  - name: document\n    dtype: string\n  - name: summary\n    dtype: string\n  - name: id\n    dtype: string\n  splits:\n  - name: train\n    num_bytes: 479206608\n    num_examples: 204045\n  - name: validation\n    num_bytes: 26292901\n    num_examples: 11332\n  - name: test\n    num_bytes: 26756165\n    num_examples: 11334\n  download_size: 257302866\n  dataset_size: 532255674\n---\n\n# Dataset Card for \"xsum\"\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:**\n- **Repository:** https://github.com/EdinburghNLP/XSum\n- **Paper:** [Don't Give Me the Details, Just the Summary! Topic-Aware Convolutional Neural Networks for Extreme Summarization](https://arxiv.org/abs/1808.08745)\n- **Point of Contact:** [Shashi Narayan](mailto:shashi.narayan@ed.ac.uk)\n- **Size of downloaded dataset files:** 257.30 MB\n- **Size of the generated dataset:** 532.26 MB\n- **Total amount of disk used:** 789.56 MB\n\n### Dataset Summary\n\nExtreme Summarization (XSum) Dataset.\n\nThere are three features:\n  - document: Input news article.\n  - summary: One sentence summary of the article.\n  - id: BBC ID of the article.\n\n### Supported Tasks and Leaderboards\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Languages\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n## Dataset Structure\n\n### Data Instances\n\n#### default\n\n- **Size of downloaded dataset files:** 257.30 MB\n- **Size of the generated dataset:** 532.26 MB\n- **Total amount of disk used:** 789.56 MB\n\nAn example of 'validation' looks as follows.\n```\n{\n    \"document\": \"some-body\",\n    \"id\": \"29750031\",\n    \"summary\": \"some-sentence\"\n}\n```\n\n### Data Fields\n\nThe data fields are the same among all splits.\n\n#### default\n- `document`: a `string` feature.\n- `summary`: a `string` feature.\n- `id`: a `string` feature.\n\n### Data Splits\n\n| name  |train |validation|test |\n|-------|-----:|---------:|----:|\n|default|204045|     11332|11334|\n\n## Dataset Creation\n\n### Curation Rationale\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n#### Who are the source language producers?\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Annotations\n\n#### Annotation process\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n#### Who are the annotators?\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Personal and Sensitive Information\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Discussion of Biases\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Other Known Limitations\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n## Additional Information\n\n### Dataset Curators\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Licensing Information\n\n[More Information Needed](https://github.com/huggingface/datasets/blob/master/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)\n\n### Citation Information\n\n```\n@article{Narayan2018DontGM,\n  title={Don't Give Me the Details, Just the Summary! Topic-Aware Convolutional Neural Networks for Extreme Summarization},\n  author={Shashi Narayan and Shay B. Cohen and Mirella Lapata},\n  journal={ArXiv},\n  year={2018},\n  volume={abs/1808.08745}\n}\n```\n\n\n### Contributions\n\nThanks to [@thomwolf](https://github.com/thomwolf), [@lewtun](https://github.com/lewtun), [@mariamabarham](https://github.com/mariamabarham), [@jbragg](https://github.com/jbragg), [@lhoestq](https://github.com/lhoestq), [@patrickvonplaten](https://github.com/patrickvonplaten) for adding this dataset.",
+              "extracted_code": "from datasets import load_dataset\n\ndataset = load_dataset(\"xsum\")\n\nprint(dataset[\"train\"][0])\nprint(dataset[\"validation\"][0])\nprint(dataset[\"test\"][0])"
+            }
+          ]
+        }
+      }
     }
   },
   "idea_info_history": [
